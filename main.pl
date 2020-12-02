@@ -1,14 +1,33 @@
 % Base de datos
+% Mamiferos:
 animal(perro).
-animal(delfin).
+animal(gato).
 animal(murcielago).
+animal(llama).
+animal(canguro).
+animal(mono).
+
+% Peces
 animal(trucha).
+animal(pejerrey).
+animal(ispi).
+animal(pirania).
+
+% reptiles
+animal(lagarto).
+animal(iguana).
+animal(vibora).
+animal(tortuga).
+
+% aves
+animal(condor).
+animal(aguila).
+animal(paloma).
+animal(avestruz).
 
 
-
-% Cobertura
 cuatro_patas(perro).
-cuatro_patas(tiranosaurio-rex).
+cuatro_patas().
 cuatro_patas(lagarto).
 cuatro_patas(tortuga).
 
@@ -90,7 +109,7 @@ branq(arrenque).
 branq(tiburon).
 branq(anguila).
 
-% reglas
+% reglas de producción
 mamifero(X) :- animal(X), mamiferos(X). %es lo mismo que la lactancia
 
 tiene_cuatro_patas(X) :- animal(X),
