@@ -27,97 +27,118 @@ animal(avestruz).
 
 
 cuatro_patas(perro).
-cuatro_patas().
+cuatro_patas(gato).
+cuatro_patas(llama).
+cuatro_patas(canguro).
+cuatro_patas(mono).
 cuatro_patas(lagarto).
+cuatro_patas(iguana).
 cuatro_patas(tortuga).
 
-tiene_dos(aguila).
-tiene_dos(pinguino).
-tiene_dos(avestruz).
+dos_patas(condor).
+dos_patas(aguila).
+dos_patas(avestruz).
+dos_patas(paloma).
+dos_patas(murcielago).
+
+cero_patas(trucha).
+cero_patas(pejerrey).
+cero_patas(ispi).
+cero_patas(pirania).
 
 cobertura_pelo(perro).
+cobertura_pelo(gato).
+cobertura_pelo(llama).
 cobertura_pelo(murcielago).
-cobertura_pelo(ornitorrinco).
+cobertura_pelo(canguro).
+cobertura_pelo(mono).
+
 cobertura_escamas(trucha).
-cobertura_escamas(serpiente).
+cobertura_escamas(pejerrey).
+cobertura_escamas(ispi).
+cobertura_escamas(pirania).
+
+cobertura_escamas(lagarto).
+cobertura_escamas(iguana).
+cobertura_escamas(vibora).
 cobertura_escamas(tortuga).
+
+cobertura_plumas(condor).
 cobertura_plumas(aguila).
 cobertura_plumas(avestruz).
-cobertura_plumas(pinguino).
+cobertura_plumas(paloma).
 
-es_habitat_tierra(perro).
-es_habitat_tierra(lagarto).
-es_habitat_tierra(cocodrilo).
-es_habitat_tierra(serpiente).
+vive_tierra(perro).
+vive_tierra(gato).
+vive_tierra(llama).
+vive_tierra(murcielago).
+vive_tierra(canguro).
+vive_tierra(mono).
 
+vive_tierra(lagarto).
+vive_tierra(iguana).
+vive_tierra(vibora).
+vive_tierra(tortuga).
 
-oviparo(trucha).
-oviparo(anguila).
-oviparo(lagarto).
-oviparo(cocodrilo).
-oviparo(serpiente).
-oviparo(tortuga).
+oviparo(condor).
 oviparo(aguila).
 oviparo(avestruz).
-oviparo(pinguino).
+oviparo(paloma).
+
+oviparo(trucha).
+oviparo(pejerrey).
+oviparo(ispi).
+oviparo(pirania).
+
+oviparo(lagarto).
+oviparo(iguana).
+oviparo(vibora).
+oviparo(tortuga).
+
 
 no_oviparo(perro).
-no_oviparo(delfin).
+no_oviparo(gato).
+no_oviparo(llama).
+no_oviparo(murcielago).
+no_oviparo(canguro).
+no_oviparo(mono).
 
 mamiferos(perro).
-mamiferos(delfin).
+mamiferos(gato).
 mamiferos(murcielago).
-mamiferos(ornitorrinco).
+mamiferos(llama).
+mamiferos(canguro).
+mamiferos(mono).
 
 pez(trucha).
-pez(tiburon).
-pez(tiburon).
-pez(anguila).
+pez(pejerrey).
+pez(ispi).
+pez(pirania).
 
 reptil(lagarto).
 reptil(tortuga).
-reptil(serpiente).
-reptil(cocodrilo).
+reptil(vibora).
+reptil(iguana).
 
+ave(condor).
 ave(aguila).
 ave(avestruz).
-ave(pinguino).
+ave(paloma).
 
-tiene_cuatro(perro).
-tiene_cuatro(lagarto).
-tiene_cuatro(cocodrilo).
-tiene_cuatro(tortuga).
-tiene_cuatro(gato).
+branquias(trucha).
+branquias(pejerrey).
+branquias(ispi).
+branquias(pirania).
 
-tiene_cero(delfin).
-tiene_cero(trucha).
-tiene_cero(arrenque).
-tiene_cero(tiburon).
-tiene_cero(anguila).
-tiene_cero(serpiente).
-
-ht(perro).
-ht(delfin).
-ht(murcielago).
-ht(ornitorrinco).
-ht(aguila).
-ht(avestruz).
-ht(pinguino).
-
-branq(trucha).
-branq(arrenque).
-branq(tiburon).
-branq(anguila).
-
-% reglas de producción
+% reglas de producciï¿½n
 mamifero(X) :- animal(X), mamiferos(X). %es lo mismo que la lactancia
 
 tiene_cuatro_patas(X) :- animal(X),
                          cuatro_patas(X).
 
-tiene_dos_patas(X) :- animal(X), tiene_dos(X).
+dos_patas_patas(X) :- animal(X), dos_patas(X).
 
-respira_por_branquias(X) :- animal(X), branq(X).
+respira_por_branquias(X) :- animal(X), branquias(X).
 tiene_pelo(X) :- animal(X), cobertura_pelo(X).
 
 tiene_escamas(X) :- animal(X), cobertura_escamas(X).
@@ -137,10 +158,9 @@ es_un_ave(X) :- animal(X), ave(X).
 es_un_reptil(X) :- animal(X), reptil(X).
 
 su_habitat_es_tierra(X) :- animal(X),
-    es_habitat_tierra(X).
+    vive_tierra(X).
 
-camina_en_cuatro_patas(X) :- animal(X), tiene_cuatro(X).
+camina_en_cuatro_patas(X) :- animal(X), cuatro_patas(X).
 
-no_tiene_patas(X) :- animal(X), tiene_cero(X).
+no_tiene_patas(X) :- animal(X), cero_patas(X).
 
-es_hemeotermico(X) :- animal(X), ht(X).
